@@ -1,4 +1,7 @@
 package com.viveknaskar.salonbooking.data;
 
-public interface BookingRepository {
+import com.viveknaskar.salonbooking.domain.Booking;
+import org.springframework.data.mongodb.repository.MongoRepository;
+
+public interface BookingRepository extends MongoRepository<Booking, String> {
 }

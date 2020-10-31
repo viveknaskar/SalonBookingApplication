@@ -1,9 +1,10 @@
-package com.viveknaskar.salonbooking.service;
+package com.viveknaskar.salonbooking.service.impl;
 
 import com.viveknaskar.salonbooking.domain.BookingRequest;
 import com.viveknaskar.salonbooking.domain.BookingResponse;
 import com.viveknaskar.salonbooking.domain.BookingSummary;
 import com.viveknaskar.salonbooking.domain.UpdateBookingRequest;
+import com.viveknaskar.salonbooking.service.BookingService;
 
 import java.time.LocalDate;
 import java.util.List;
