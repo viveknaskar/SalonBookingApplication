@@ -1,9 +1,8 @@
 package com.viveknaskar.salonbooking.service;
 
-import com.viveknaskar.salonbooking.domain.*;
+import com.viveknaskar.salonbooking.domain.Booking;
 import org.springframework.stereotype.Service;
 
-import java.time.LocalDate;
 import java.util.List;
 
 @Service

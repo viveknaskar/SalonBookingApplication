@@ -1,6 +1,6 @@
 package com.viveknaskar.salonbooking.service.impl;
 
-import com.viveknaskar.salonbooking.data.BarberReposirory;
+import com.viveknaskar.salonbooking.data.BarberRepository;
 import com.viveknaskar.salonbooking.domain.BarberDetails;
 import com.viveknaskar.salonbooking.service.BarberService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,17 +15,17 @@ import java.util.Random;
 public class BarberServiceImpl implements BarberService {
 
     @Autowired
-    BarberReposirory barberReposirory;
+    BarberRepository barberRepository;
 
     @Override
     public BarberDetails registerBarberDetails(BarberDetails barberDetails) {
         barberDetails.setId(generateRandomId());
-        return barberReposirory.save(barberDetails);
+        return barberRepository.save(barberDetails);
     }
 
     @Override
     public List<BarberDetails> getBarberAllRecords() {
-        List<BarberDetails> barberDetailsList = barberReposirory.findAll();
+        List<BarberDetails> barberDetailsList = barberRepository.findAll();
         Comparator<BarberDetails> comparator = Comparator.comparing(BarberDetails::getId);
         Collections.sort(barberDetailsList, comparator);
         return barberDetailsList;
@@ -33,7 +33,7 @@ public class BarberServiceImpl implements BarberService {
 
     @Override
     public BarberDetails getBarberRecord(long id) {
-        return barberReposirory.findById(id);
+        return barberRepository.findById(id);
     }
 
     private long generateRandomId(){

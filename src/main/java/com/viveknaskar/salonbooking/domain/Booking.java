@@ -3,10 +3,7 @@ package com.viveknaskar.salonbooking.domain;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-import java.time.LocalDate;
-import java.util.Date;
-
-@Document(collection = "customer_booking_details")
+@Document(collection = "booking_details")
 public class Booking {
     @Id
     private long id;

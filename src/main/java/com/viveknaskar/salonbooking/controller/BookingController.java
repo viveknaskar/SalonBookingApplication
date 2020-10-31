@@ -1,18 +1,11 @@
 package com.viveknaskar.salonbooking.controller;
 
-import com.viveknaskar.salonbooking.data.BookingRepository;
-import com.viveknaskar.salonbooking.domain.BarberDetails;
 import com.viveknaskar.salonbooking.domain.Booking;
-import com.viveknaskar.salonbooking.service.BarberService;
 import com.viveknaskar.salonbooking.service.BookingService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
 
 @RestController
 @RequestMapping("/booking")
