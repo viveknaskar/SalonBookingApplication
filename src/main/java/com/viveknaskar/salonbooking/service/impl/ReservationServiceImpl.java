@@ -1,3 +1,4 @@
+/*
 package com.viveknaskar.salonbooking.service.impl;
 
 import com.viveknaskar.salonbooking.domain.Booking;
@@ -9,9 +10,9 @@ import java.util.Set;
 public class ReservationServiceImpl implements ReservationService {
 
     private static boolean isOverlapping(final Booking systemBook, final Booking userBook) {
-        LocalDate dateSystem = systemBook.getBookingDate();
+        LocalDate dateSystem = systemBook.getBookingDate(systemBook.getBookingDate());
 
-        LocalDate dateUser = userBook.getBookingDate();
+        LocalDate dateUser = userBook.getBookingDate(userBook.getBookingDate());
 
         return ((dateSystem.isBefore(dateUser)) && (dateUser.isBefore(dateSystem)));
     }
@@ -25,3 +26,4 @@ public class ReservationServiceImpl implements ReservationService {
         return !overlaps;
     }
 }
+*/

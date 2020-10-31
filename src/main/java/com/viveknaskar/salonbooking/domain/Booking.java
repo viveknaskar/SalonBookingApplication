@@ -1,23 +1,41 @@
 package com.viveknaskar.salonbooking.domain;
 
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+
 import java.time.LocalDate;
 
+@Document(collection = "booking")
 public class Booking {
-    private final String id;
+    @Id
+    private String id;
+
+    private LocalDate bookingDate;
+
+    private boolean bookingConfirmed;
+
+
+    public Booking(String id, LocalDate bookingDate, boolean bookingConfirmed) {
+        this.id = id;
+        this.bookingDate = bookingDate;
+        this.bookingConfirmed = bookingConfirmed;
+    }
 
     public String getId() {
         return id;
     }
 
-    public LocalDate getBookingDate() {
-        return bookingDate;
+    public LocalDate getBookingDate(LocalDate bookingDate) {
+        return this.bookingDate;
     }
 
-    private final LocalDate bookingDate;
+    public boolean isBookingConfirmed() {
+        return bookingConfirmed;
+    }
 
-    public Booking(String id, LocalDate bookingDate) {
-        this.id = id;
-        this.bookingDate = bookingDate;
+    @Override
+    public String toString() {
+        return "Bookings[id=" + id + ", bookingDate=" + bookingDate +", bookingConfirmed=" + bookingConfirmed+"]";
     }
 
 }

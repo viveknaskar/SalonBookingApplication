@@ -1,16 +1,13 @@
 package com.viveknaskar.salonbooking.service;
 
-import com.viveknaskar.salonbooking.domain.BookingRequest;
-import com.viveknaskar.salonbooking.domain.BookingResponse;
-import com.viveknaskar.salonbooking.domain.BookingSummary;
-import com.viveknaskar.salonbooking.domain.UpdateBookingRequest;
+import com.viveknaskar.salonbooking.domain.*;
 
 import java.time.LocalDate;
 import java.util.List;
 
 public interface BookingService {
 
-    BookingResponse bookAppointment(final BookingRequest bookingRequest);
+    BookingResponse bookAppointment(final Booking booking);
 
     int deleteBooking(final String id);
 
