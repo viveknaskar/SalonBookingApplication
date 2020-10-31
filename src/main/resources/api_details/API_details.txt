@@ -1,0 +1,112 @@
+API:
+
+1) GET : http://localhost:3030/barber/details/97
+
+Response:
+{
+    "id": 97,
+    "name": "Vivek",
+    "address": "Kolkata",
+    "phoneNumber": "1234",
+    "experience": "5",
+    "rating": "4",
+    "chargePerSession": "300"
+}
+
+2) GET : http://localhost:3030/barber/details
+
+Response : 
+[
+    {
+        "id": 97,
+        "name": "Vivek",
+        "address": "Kolkata",
+        "phoneNumber": "1234",
+        "experience": "5",
+        "rating": "4",
+        "chargePerSession": "300"
+    },
+    {
+        "id": 518,
+        "name": "Vivek",
+        "address": "Kolkata",
+        "phoneNumber": "1234",
+        "experience": "5",
+        "rating": "4",
+        "chargePerSession": "300"
+    }
+]
+
+3) POST : http://localhost:3030/barber/register
+
+Body : 
+{
+	"name":"Vivek",
+	"address":"Kolkata",
+	"phoneNumber":"1234",
+	"experience":"5",
+	"rating":"4",
+	"chargePerSession":"300"
+}
+
+Response :
+{
+    "id": 681,
+    "name": "Vivek",
+    "address": "Kolkata",
+    "phoneNumber": "1234",
+    "experience": "5",
+    "rating": "4",
+    "chargePerSession": "300"
+}
+
+4) POST : http://localhost:3030/booking/barber/availability
+
+Body : {
+	"bookingDate":"10/31/2020",
+	"barberId":97,
+	"timeSlotFrom":"9:30",
+	"timeSlotTo":"10:30"
+}
+
+Response : true or false
+
+5) GET : http://localhost:3030/booking/details
+
+Response : 
+[
+    {
+        "id": 59692,
+        "bookingDate": "10/31/2020",
+        "customerName": "Kesava",
+        "customerPhoneNumber": "1234",
+        "barberId": 97,
+        "barberName": "Vivek",
+        "timeSlotFrom": "9:30",
+        "timeSlotTo": "10:30"
+    }
+]
+
+6) POST : http://localhost:3030/booking/create
+Body : 
+{
+	"bookingDate":"10/31/2020",
+	"customerName":"Kesava",
+	"customerPhoneNumber":"1234",
+	"barberId":681,
+	"barberName":"Vivek",
+	"timeSlotFrom":"9:30",
+	"timeSlotTo":"10:30"
+}
+
+Response:
+{
+    "id": 32836,
+    "bookingDate": "10/31/2020",
+    "customerName": "Kesava",
+    "customerPhoneNumber": "1234",
+    "barberId": 681,
+    "barberName": "Vivek",
+    "timeSlotFrom": "9:30",
+    "timeSlotTo": "10:30"
+}

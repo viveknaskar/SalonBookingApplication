@@ -4,38 +4,81 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.time.LocalDate;
+import java.util.Date;
 
-@Document(collection = "booking")
+@Document(collection = "customer_booking_details")
 public class Booking {
     @Id
-    private String id;
+    private long id;
+    private String bookingDate;
+    private String customerName;
+    private String customerPhoneNumber;
+    private long barberId;
+    private String barberName;
+    private String timeSlotFrom;
+    private String timeSlotTo;
 
-    private LocalDate bookingDate;
-
-    private boolean bookingConfirmed;
-
-
-    public Booking(String id, LocalDate bookingDate, boolean bookingConfirmed) {
-        this.id = id;
-        this.bookingDate = bookingDate;
-        this.bookingConfirmed = bookingConfirmed;
-    }
-
-    public String getId() {
+    public long getId() {
         return id;
     }
 
-    public LocalDate getBookingDate(LocalDate bookingDate) {
-        return this.bookingDate;
+    public void setId(long id) {
+        this.id = id;
     }
 
-    public boolean isBookingConfirmed() {
-        return bookingConfirmed;
+    public String getBookingDate() {
+        return bookingDate;
     }
 
-    @Override
-    public String toString() {
-        return "Bookings[id=" + id + ", bookingDate=" + bookingDate +", bookingConfirmed=" + bookingConfirmed+"]";
+    public void setBookingDate(String bookingDate) {
+        this.bookingDate = bookingDate;
     }
 
+    public String getCustomerName() {
+        return customerName;
+    }
+
+    public void setCustomerName(String customerName) {
+        this.customerName = customerName;
+    }
+
+    public String getCustomerPhoneNumber() {
+        return customerPhoneNumber;
+    }
+
+    public void setCustomerPhoneNumber(String customerPhoneNumber) {
+        this.customerPhoneNumber = customerPhoneNumber;
+    }
+
+    public long getBarberId() {
+        return barberId;
+    }
+
+    public void setBarberId(long barberId) {
+        this.barberId = barberId;
+    }
+
+    public String getBarberName() {
+        return barberName;
+    }
+
+    public void setBarberName(String barberName) {
+        this.barberName = barberName;
+    }
+
+    public String getTimeSlotFrom() {
+        return timeSlotFrom;
+    }
+
+    public void setTimeSlotFrom(String timeSlotFrom) {
+        this.timeSlotFrom = timeSlotFrom;
+    }
+
+    public String getTimeSlotTo() {
+        return timeSlotTo;
+    }
+
+    public void setTimeSlotTo(String timeSlotTo) {
+        this.timeSlotTo = timeSlotTo;
+    }
 }
