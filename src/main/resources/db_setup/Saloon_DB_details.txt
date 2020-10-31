@@ -1,0 +1,24 @@
+/bin>mongod
+/bin>mongo.exe
+
+> use SaloonDataBase
+switched to db SaloonDataBase
+> db
+SaloonDataBase
+>db.createUser(
+  {
+    user: "saloonuser",
+    pwd: "saloonpassword",
+    roles: [ { role: "readWrite", db: "SaloonDataBase" } ]
+  }
+)
+Successfully added user: {
+        "user" : "saloonuser",
+        "roles" : [
+                {
+                        "role" : "readWrite",
+                        "db" : "SaloonDataBase"
+                }
+        ]
+}
+>

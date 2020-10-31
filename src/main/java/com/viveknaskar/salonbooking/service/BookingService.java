@@ -1,20 +1,14 @@
 package com.viveknaskar.salonbooking.service;
 
-import com.viveknaskar.salonbooking.domain.*;
+import com.viveknaskar.salonbooking.domain.Booking;
+import org.springframework.stereotype.Service;
 
-import java.time.LocalDate;
 import java.util.List;
 
+@Service
 public interface BookingService {
 
-    BookingResponse bookAppointment(final Booking booking);
-
-    int deleteBooking(final String id);
-
-    BookingResponse updateBooking(final String id, final UpdateBookingRequest request);
-
-    BookingSummary findBookingById(final String id);
-
-    List<LocalDate> findAvailableDays(final LocalDate from, final LocalDate to);
-
+    Booking createBookingService(Booking bookingDetails);
+    List<Booking> getAllBookingServices();
+    boolean getBarberAvailability(Booking bookingDetails);
 }

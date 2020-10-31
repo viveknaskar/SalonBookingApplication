@@ -1,23 +1,23 @@
 package com.viveknaskar.salonbooking.controller;
 
-import com.viveknaskar.salonbooking.domain.Booking;
-import com.viveknaskar.salonbooking.service.BookingService;
+import com.viveknaskar.salonbooking.domain.BarberDetails;
+import com.viveknaskar.salonbooking.service.BarberService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/booking")
-public class BookingController {
+@RequestMapping("/barber")
+public class BarberController {
 
     @Autowired
-    BookingService bookingService;
+    BarberService barberService;
 
-    @PostMapping("/create")
-    public ResponseEntity createBookingService(@RequestBody Booking bookingDetails) {
+    @PostMapping("/register")
+    public ResponseEntity createBarberRecord(@RequestBody BarberDetails barberDetails) {
         try {
-            return new ResponseEntity<>(bookingService.createBookingService(bookingDetails), HttpStatus.CREATED);
+            return new ResponseEntity<>(barberService.registerBarberDetails(barberDetails), HttpStatus.CREATED);
         } catch (Exception e) {
             return new ResponseEntity<>(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
         }
@@ -26,16 +26,16 @@ public class BookingController {
     @GetMapping("/details")
     public ResponseEntity getBarberAllRecords() {
         try {
-            return new ResponseEntity<>(bookingService.getAllBookingServices(), HttpStatus.OK);
+            return new ResponseEntity<>(barberService.getBarberAllRecords(), HttpStatus.OK);
         } catch (Exception e) {
             return new ResponseEntity<>(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
 
-    @PostMapping("/barber/availability")
-    public ResponseEntity checkBarberAvailability(@RequestBody Booking bookingDetails) {
+    @GetMapping("/details/{id}")
+    public ResponseEntity getBarberRecord(@PathVariable long id) {
         try {
-            return new ResponseEntity<>(bookingService.getBarberAvailability(bookingDetails), HttpStatus.OK);
+            return new ResponseEntity<>(barberService.getBarberRecord(id), HttpStatus.OK);
         } catch (Exception e) {
             return new ResponseEntity<>(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
         }
