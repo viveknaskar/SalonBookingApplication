@@ -1,81 +1,42 @@
 package com.salon.aussie.domain;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+import lombok.Data;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+@Data
 @Document(collection = "booking_details")
 public class Booking {
     @Id
     private long id;
     private String bookingDate;
-    private String customerName;
-    private String customerPhoneNumber;
+    private String name;
+    private String phone;
     private long barberId;
     private String barberName;
-    private String timeSlotFrom;
-    private String timeSlotTo;
+    private String startTime;
+    private String endTime;
+    private String subject;
+    private String location;
+    private String comments;
+    @JsonProperty("IsBlock")
+    private boolean isBlock;
 
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
-    }
-
-    public String getBookingDate() {
-        return bookingDate;
-    }
-
-    public void setBookingDate(String bookingDate) {
-        this.bookingDate = bookingDate;
-    }
-
-    public String getCustomerName() {
-        return customerName;
-    }
-
-    public void setCustomerName(String customerName) {
-        this.customerName = customerName;
-    }
-
-    public String getCustomerPhoneNumber() {
-        return customerPhoneNumber;
-    }
-
-    public void setCustomerPhoneNumber(String customerPhoneNumber) {
-        this.customerPhoneNumber = customerPhoneNumber;
-    }
-
-    public long getBarberId() {
-        return barberId;
-    }
-
-    public void setBarberId(long barberId) {
-        this.barberId = barberId;
-    }
-
-    public String getBarberName() {
-        return barberName;
-    }
-
-    public void setBarberName(String barberName) {
-        this.barberName = barberName;
-    }
-
-    public String getTimeSlotFrom() {
-        return timeSlotFrom;
-    }
-
-    public void setTimeSlotFrom(String timeSlotFrom) {
-        this.timeSlotFrom = timeSlotFrom;
-    }
-
-    public String getTimeSlotTo() {
-        return timeSlotTo;
-    }
-
-    public void setTimeSlotTo(String timeSlotTo) {
-        this.timeSlotTo = timeSlotTo;
+    public Booking adminView() {
+        Booking booking = new Booking();
+        booking.setId(this.getId());
+        booking.setBarberId(this.getBarberId());
+        booking.setBarberName(this.getBarberName());
+        booking.setBookingDate(this.getBookingDate());
+        booking.setBlock(false);
+        booking.setName(this.getName());
+        booking.setComments(this.getComments());
+        booking.setEndTime(this.getEndTime());
+        booking.setLocation(this.getLocation());
+        booking.setPhone(this.getPhone());
+        booking.setStartTime(this.getStartTime());
+        booking.setSubject(this.getSubject());
+        return booking;
     }
 }

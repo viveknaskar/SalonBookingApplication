@@ -10,5 +10,6 @@ public interface BookingService {
 
     Booking createBookingService(Booking bookingDetails);
     List<Booking> getAllBookingServices();
+    List<Booking> getAllBookingServicesForAdmin();
     boolean getBarberAvailability(Booking bookingDetails);
 }

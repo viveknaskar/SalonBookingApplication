@@ -10,6 +10,7 @@ import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.stereotype.Component;
 
 import java.security.SecureRandom;
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
@@ -38,18 +39,28 @@ public class BookingServiceImpl implements BookingService {
     }
 
     @Override
+    public List<Booking> getAllBookingServicesForAdmin() {
+        List<Booking> adminViewList = new ArrayList<>();
+        List<Booking> bookingList = getAllBookingServices();
+        for (Booking booking:bookingList) {
+            adminViewList.add(booking.adminView());
+        }
+        return adminViewList;
+    }
+
+    @Override
     public boolean getBarberAvailability(Booking bookingDetails) {
 
         String bookingDate = bookingDetails.getBookingDate();
-        String timeSlotFrom = bookingDetails.getTimeSlotFrom();
-        String timeSlotTo = bookingDetails.getTimeSlotTo();
+        String startTime = bookingDetails.getStartTime();
+        String endTime = bookingDetails.getEndTime();
 
         Query query = new Query();
         query.addCriteria(
                 new Criteria().andOperator(
                         Criteria.where("bookingDate").is(bookingDate),
-                        Criteria.where("timeSlotFrom").is(timeSlotFrom),
-                        Criteria.where("timeSlotTo").is(timeSlotTo),
+                        Criteria.where("startTime").is(startTime),
+                        Criteria.where("endTime").is(endTime),
                         Criteria.where("barberId").is(bookingDetails.getBarberId())
                 )
         );

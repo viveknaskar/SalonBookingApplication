@@ -38,11 +38,15 @@ class BookingControllerTest {
         booking.setId(123546);
         booking.setBarberId(12);
         booking.setBarberName("tester");
-        booking.setCustomerName("test");
+        booking.setName("test");
         booking.setBookingDate("4");
-        booking.setCustomerPhoneNumber("1234654");
-        booking.setTimeSlotFrom("5");
-        booking.setTimeSlotTo("6");
+        booking.setPhone("1234654");
+        booking.setStartTime("5");
+        booking.setEndTime("6");
+        booking.setSubject("testing");
+        booking.setLocation("Melbourne");
+        booking.setComments("Good");
+        booking.setBlock(true);
         bookingList.add(booking);
 
         Mockito.when(bookingService.getAllBookingServices()).thenReturn(bookingList);
@@ -51,6 +55,42 @@ class BookingControllerTest {
                 MediaType.APPLICATION_JSON);
         MvcResult result = mockMvc.perform(requestBuilder).andReturn();
         Assert.assertEquals(HttpStatus.OK.value(), result.getResponse().getStatus());
+    }
+
+    @Test
+    void getBarberAllRecordsAdminTest() throws Exception {
+        List<Booking> bookingList = new ArrayList<>();
+        Booking booking = new Booking();
+        booking.setId(123546);
+        booking.setBarberId(12);
+        booking.setBarberName("tester");
+        booking.setName("test");
+        booking.setBookingDate("4");
+        booking.setPhone("1234654");
+        booking.setStartTime("5");
+        booking.setEndTime("6");
+        booking.setSubject("testing");
+        booking.setLocation("Melbourne");
+        booking.setComments("Good");
+        booking.setBlock(false);
+        bookingList.add(booking);
+
+        Mockito.when(bookingService.getAllBookingServicesForAdmin()).thenReturn(bookingList);
+        RequestBuilder requestBuilder = MockMvcRequestBuilders.get(
+                "/booking/admin/details").accept(
+                MediaType.APPLICATION_JSON);
+        MvcResult result = mockMvc.perform(requestBuilder).andReturn();
+        Assert.assertEquals(HttpStatus.OK.value(), result.getResponse().getStatus());
+    }
+
+    @Test
+    void getBarberAllRecordsAdminExceptionTest() throws Exception {
+        Mockito.when(bookingService.getAllBookingServicesForAdmin()).thenThrow(new RuntimeException());
+        RequestBuilder requestBuilder = MockMvcRequestBuilders.get(
+                "/booking/admin/details").accept(
+                MediaType.APPLICATION_JSON);
+        MvcResult result = mockMvc.perform(requestBuilder).andReturn();
+        Assert.assertEquals(HttpStatus.INTERNAL_SERVER_ERROR.value(), result.getResponse().getStatus());
     }
 
     @Test
@@ -70,11 +110,15 @@ class BookingControllerTest {
         booking.setId(123546);
         booking.setBarberId(12);
         booking.setBarberName("tester");
-        booking.setCustomerName("test");
+        booking.setName("test");
         booking.setBookingDate("4");
-        booking.setCustomerPhoneNumber("1234654");
-        booking.setTimeSlotFrom("5");
-        booking.setTimeSlotTo("6");
+        booking.setPhone("1234654");
+        booking.setStartTime("5");
+        booking.setEndTime("6");
+        booking.setSubject("testing");
+        booking.setLocation("Melbourne");
+        booking.setComments("Good");
+        booking.setBlock(true);
         String json = mapper.writeValueAsString(booking);
         Mockito.when(bookingService.createBookingService(booking)).thenReturn(booking);
         RequestBuilder requestBuilder = MockMvcRequestBuilders
@@ -114,11 +158,15 @@ class BookingControllerTest {
         booking.setId(123546);
         booking.setBarberId(12);
         booking.setBarberName("tester");
-        booking.setCustomerName("test");
+        booking.setName("test");
         booking.setBookingDate("4");
-        booking.setCustomerPhoneNumber("1234654");
-        booking.setTimeSlotFrom("5");
-        booking.setTimeSlotTo("6");
+        booking.setPhone("1234654");
+        booking.setStartTime("5");
+        booking.setEndTime("6");
+        booking.setSubject("testing");
+        booking.setLocation("Melbourne");
+        booking.setComments("Good");
+        booking.setBlock(true);
         String json = mapper.writeValueAsString(booking);
         Mockito.when(bookingService.getBarberAvailability(booking)).thenReturn(true);
         RequestBuilder requestBuilder = MockMvcRequestBuilders
