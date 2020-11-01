@@ -94,7 +94,6 @@ class BookingServiceImplTest {
 
     @Test
     void getBarberAvailabilityListEmptyTest(){
-        List<Booking> bookingList = new ArrayList<>();
         Booking booking = new Booking();
         booking.setId(123546);
         booking.setBarberId(12);
@@ -147,5 +146,26 @@ class BookingServiceImplTest {
         bookingList1.add(booking1);
         Mockito.when(bookingRepository.findAll()).thenReturn(bookingList);
         Assert.assertEquals(bookingList1,bookingService.getAllBookingServicesForAdmin());
+    }
+
+    @Test
+    void getBookingOfBarberPass(){
+        List<Booking> bookingList = new ArrayList<>();
+        Booking booking = new Booking();
+        booking.setId(123546);
+        booking.setBarberId(12);
+        booking.setBarberName("tester");
+        booking.setName("test");
+        booking.setBookingDate("4");
+        booking.setPhone("1234654");
+        booking.setStartTime("5");
+        booking.setEndTime("6");
+        booking.setSubject("testing");
+        booking.setLocation("Melbourne");
+        booking.setComments("Good");
+        booking.setBlock(true);
+        bookingList.add(booking);
+        Mockito.when(bookingRepository.findByBarberId(12)).thenReturn(bookingList);
+        Assert.assertEquals(bookingList,bookingService.getBookingOfBarber(12));
     }
 }

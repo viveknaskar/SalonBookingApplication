@@ -32,6 +32,15 @@ public class BookingController {
         }
     }
 
+    @GetMapping("/details/{id}")
+    public ResponseEntity getBookingDetailsForBarber(@PathVariable long id) {
+        try {
+            return new ResponseEntity<>(bookingService.getBookingOfBarber(id), HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<>(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
     @GetMapping("/admin/details")
     public ResponseEntity getBarberAllRecordsForAdmin() {
         try {

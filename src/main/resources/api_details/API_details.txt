@@ -65,8 +65,8 @@ Response :
 Body : {
 	"bookingDate":"10/31/2020",
 	"barberId":97,
-	"timeSlotFrom":"9:30",
-	"timeSlotTo":"10:30"
+	"startTime":"9:30",
+	"endTime":"10:30"
 }
 
 Response : true or false
@@ -76,14 +76,18 @@ Response : true or false
 Response : 
 [
     {
-        "id": 59692,
+        "id": 33831,
         "bookingDate": "10/31/2020",
-        "customerName": "Kesava",
-        "customerPhoneNumber": "1234",
-        "barberId": 97,
+        "name": "Kesava",
+        "phone": "1234",
+        "barberId": 259,
         "barberName": "Vivek",
-        "timeSlotFrom": "9:30",
-        "timeSlotTo": "10:30"
+        "startTime": "9:30",
+        "endTime": "10:30",
+        "subject": null,
+        "location": null,
+        "comments": null,
+        "IsBlock": true
     }
 ]
 
@@ -91,22 +95,93 @@ Response :
 Body : 
 {
 	"bookingDate":"10/31/2020",
-	"customerName":"Kesava",
-	"customerPhoneNumber":"1234",
-	"barberId":681,
+	"name":"Kesava",
+	"phone":"1234",
+	"barberId":259,
 	"barberName":"Vivek",
-	"timeSlotFrom":"9:30",
-	"timeSlotTo":"10:30"
+	"startTime":"9:30",
+	"endTime":"10:30"
 }
 
 Response:
 {
-    "id": 32836,
+    "id": 33831,
     "bookingDate": "10/31/2020",
-    "customerName": "Kesava",
-    "customerPhoneNumber": "1234",
-    "barberId": 681,
+    "name": "Kesava",
+    "phone": "1234",
+    "barberId": 259,
     "barberName": "Vivek",
-    "timeSlotFrom": "9:30",
-    "timeSlotTo": "10:30"
+    "startTime": "9:30",
+    "endTime": "10:30",
+    "subject": null,
+    "location": null,
+    "comments": null,
+    "IsBlock": true
 }
+
+7) GET : http://localhost:3030/booking/details/259
+
+Response :
+[
+    {
+        "id": 33831,
+        "bookingDate": "10/31/2020",
+        "name": "Kesava",
+        "phone": "1234",
+        "barberId": 259,
+        "barberName": "Vivek",
+        "startTime": "9:30",
+        "endTime": "10:30",
+        "subject": null,
+        "location": null,
+        "comments": null,
+        "IsBlock": true
+
+    {
+        "id": 33832,
+        "bookingDate": "10/31/2020",
+        "name": "Kesava",
+        "phone": "1234",
+        "barberId": 259,
+        "barberName": "Vivek",
+        "startTime": "11:30",
+        "endTime": "12:30",
+        "subject": null,
+        "location": null,
+        "comments": null,
+        "IsBlock": true
+    }
+]
+
+8) GET : http://localhost:3030/booking/admin/details
+
+[
+    {
+        "id": 33831,
+        "bookingDate": "10/31/2020",
+        "name": "Kesava",
+        "phone": "1234",
+        "barberId": 259,
+        "barberName": "Vivek",
+        "startTime": "9:30",
+        "endTime": "10:30",
+        "subject": null,
+        "location": null,
+        "comments": null,
+        "IsBlock": false
+    },
+    {
+        "id": 84125,
+        "bookingDate": "10/31/2020",
+        "name": "Kesava",
+        "phone": "1234",
+        "barberId": 259,
+        "barberName": "Vivek",
+        "startTime": "12:30",
+        "endTime": "1:30",
+        "subject": null,
+        "location": null,
+        "comments": null,
+        "IsBlock": false
+    }
+]

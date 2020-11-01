@@ -27,6 +27,7 @@ public class BookingServiceImpl implements BookingService {
     @Override
     public Booking createBookingService(Booking bookingDetails) {
         bookingDetails.setId(generateBookingId());
+        bookingDetails.setBlock(true);
         return bookingRepository.save(bookingDetails);
     }
 
@@ -70,6 +71,12 @@ public class BookingServiceImpl implements BookingService {
             return true;
         }
         return false;
+    }
+
+    @Override
+    public List<Booking> getBookingOfBarber(long id) {
+        List<Booking> barberBookingList = bookingRepository.findByBarberId(id);
+        return barberBookingList;
     }
 
     private long generateBookingId() {
