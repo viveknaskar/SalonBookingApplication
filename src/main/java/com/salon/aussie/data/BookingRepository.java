@@ -1,6 +1,6 @@
-package com.viveknaskar.salonbooking.data;
+package com.salon.aussie.data;
 
-import com.viveknaskar.salonbooking.domain.Booking;
+import com.salon.aussie.domain.Booking;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.stereotype.Repository;
 

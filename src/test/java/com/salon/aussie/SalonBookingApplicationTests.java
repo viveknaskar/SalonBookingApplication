@@ -1,4 +1,4 @@
-package com.viveknaskar.salonbooking;
+package com.salon.aussie;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

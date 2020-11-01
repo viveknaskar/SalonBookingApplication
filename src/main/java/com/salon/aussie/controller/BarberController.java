@@ -1,7 +1,7 @@
-package com.viveknaskar.salonbooking.controller;
+package com.salon.aussie.controller;
 
-import com.viveknaskar.salonbooking.domain.BarberDetails;
-import com.viveknaskar.salonbooking.service.BarberService;
+import com.salon.aussie.domain.BarberDetails;
+import com.salon.aussie.service.BarberService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

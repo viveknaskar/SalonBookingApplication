@@ -1,6 +1,6 @@
-package com.viveknaskar.salonbooking.service;
+package com.salon.aussie.service;
 
-import com.viveknaskar.salonbooking.domain.BarberDetails;
+import com.salon.aussie.domain.BarberDetails;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

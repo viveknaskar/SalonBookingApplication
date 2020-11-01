@@ -1,8 +1,8 @@
-package com.viveknaskar.salonbooking.service.impl;
+package com.salon.aussie.service.impl;
 
-import com.viveknaskar.salonbooking.data.BarberRepository;
-import com.viveknaskar.salonbooking.domain.BarberDetails;
-import com.viveknaskar.salonbooking.service.BarberService;
+import com.salon.aussie.data.BarberRepository;
+import com.salon.aussie.domain.BarberDetails;
+import com.salon.aussie.service.BarberService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 

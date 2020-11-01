@@ -1,8 +1,8 @@
-package com.viveknaskar.salonbooking.service.impl;
+package com.salon.aussie.service.impl;
 
-import com.viveknaskar.salonbooking.data.BookingRepository;
-import com.viveknaskar.salonbooking.domain.Booking;
-import com.viveknaskar.salonbooking.service.BookingService;
+import com.salon.aussie.domain.Booking;
+import com.salon.aussie.data.BookingRepository;
+import com.salon.aussie.service.BookingService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.query.Criteria;
