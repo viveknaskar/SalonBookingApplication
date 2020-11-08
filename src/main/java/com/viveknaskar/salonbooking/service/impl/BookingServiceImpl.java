@@ -1,8 +1,8 @@
-package com.salon.aussie.service.impl;
+package com.viveknaskar.salonbooking.service.impl;
 
-import com.salon.aussie.domain.Booking;
-import com.salon.aussie.data.BookingRepository;
-import com.salon.aussie.service.BookingService;
+import com.viveknaskar.salonbooking.domain.Booking;
+import com.viveknaskar.salonbooking.data.BookingRepository;
+import com.viveknaskar.salonbooking.service.BookingService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.query.Criteria;
@@ -44,7 +44,7 @@ public class BookingServiceImpl implements BookingService {
         List<Booking> adminViewList = new ArrayList<>();
         List<Booking> bookingList = getAllBookingServices();
         for (Booking booking:bookingList) {
-            adminViewList.add(booking.adminView());
+            adminViewList.add(booking);
         }
         return adminViewList;
     }
