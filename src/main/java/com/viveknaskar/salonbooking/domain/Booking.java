@@ -1,19 +1,27 @@
 package com.viveknaskar.salonbooking.domain;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+import lombok.Data;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+@Data
 @Document(collection = "booking_details")
 public class Booking {
     @Id
     private long id;
     private String bookingDate;
-    private String customerName;
-    private String customerPhoneNumber;
+    private String name;
+    private String phone;
     private long barberId;
     private String barberName;
-    private String timeSlotFrom;
-    private String timeSlotTo;
+    private String startTime;
+    private String endTime;
+    private String subject;
+    private String location;
+    private String comments;
+    @JsonProperty("IsBlock")
+    private boolean isBlock;
 
     public long getId() {
         return id;
@@ -31,20 +39,20 @@ public class Booking {
         this.bookingDate = bookingDate;
     }
 
-    public String getCustomerName() {
-        return customerName;
+    public String getName() {
+        return name;
     }
 
-    public void setCustomerName(String customerName) {
-        this.customerName = customerName;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public String getCustomerPhoneNumber() {
-        return customerPhoneNumber;
+    public String getPhone() {
+        return phone;
     }
 
-    public void setCustomerPhoneNumber(String customerPhoneNumber) {
-        this.customerPhoneNumber = customerPhoneNumber;
+    public void setPhone(String phone) {
+        this.phone = phone;
     }
 
     public long getBarberId() {
@@ -63,19 +71,51 @@ public class Booking {
         this.barberName = barberName;
     }
 
-    public String getTimeSlotFrom() {
-        return timeSlotFrom;
+    public String getStartTime() {
+        return startTime;
     }
 
-    public void setTimeSlotFrom(String timeSlotFrom) {
-        this.timeSlotFrom = timeSlotFrom;
+    public void setStartTime(String startTime) {
+        this.startTime = startTime;
     }
 
-    public String getTimeSlotTo() {
-        return timeSlotTo;
+    public String getEndTime() {
+        return endTime;
     }
 
-    public void setTimeSlotTo(String timeSlotTo) {
-        this.timeSlotTo = timeSlotTo;
+    public void setEndTime(String endTime) {
+        this.endTime = endTime;
+    }
+
+    public String getSubject() {
+        return subject;
+    }
+
+    public void setSubject(String subject) {
+        this.subject = subject;
+    }
+
+    public String getLocation() {
+        return location;
+    }
+
+    public void setLocation(String location) {
+        this.location = location;
+    }
+
+    public String getComments() {
+        return comments;
+    }
+
+    public void setComments(String comments) {
+        this.comments = comments;
+    }
+
+    public boolean isBlock() {
+        return isBlock;
+    }
+
+    public void setBlock(boolean block) {
+        isBlock = block;
     }
 }
