@@ -2,11 +2,11 @@
 # minimum configuration for two package managers
 # more details: https://docs.github.com/en/code-security/supply-chain-security/enabling-and-disabling-version-updates
 
-version: 2
-updates:
+# version: 2
+# updates:
   # Enable version updates for maven
-  - package-ecosystem: "maven"
-    directory: "/"
+#  - package-ecosystem: "maven"
+#    directory: "/"
     # Check the maven registry for updates every day (weekdays)
-    schedule:
-       interval: "weekly"
+#    schedule:
+#       interval: "weekly"
