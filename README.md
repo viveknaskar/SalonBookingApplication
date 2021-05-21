@@ -1,4 +1,4 @@
-# SalonBookingApplication
+# Salon Booking Application
 A spring-boot application for booking a reservation in a Salon that checks the availability of barbers, and if they are available, a reservation can be done.
 
 ## Technology Stack
