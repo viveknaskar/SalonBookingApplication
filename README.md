@@ -5,8 +5,10 @@ A spring-boot application for booking a reservation in a Salon that checks the a
 
 - Java 8
 - Apache Maven 3.6.3
-- Spring Boot 2.3.4
+- Spring Boot 2.3.4 +
 - MongoDB 4.0
+
+The dependabot has been added to check for newer dependencies which are safe to use.
 
 
 
