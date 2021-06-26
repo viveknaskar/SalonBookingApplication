@@ -9,4 +9,4 @@
 #    directory: "/"
     # Check the maven registry for updates every day (weekdays)
 #    schedule:
-#       interval: "weekly"
+#       interval: "monthly"
