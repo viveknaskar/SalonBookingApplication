@@ -1,0 +1,126 @@
+{
+	"variables": [],
+	"info": {
+		"name": "SaloonBooking",
+		"_postman_id": "2069ca98-2be6-6f8f-bf8c-1df213bdcdbd",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Register A Barber",
+			"request": {
+				"url": "http://localhost:3030/barber/register",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"name\":\"Kesava\",\r\n\t\"address\":\"Hyderabad\",\r\n\t\"phoneNumber\":\"1234\",\r\n\t\"experience\":\"5\",\r\n\t\"rating\":\"3\",\r\n\t\"chargePerSession\":\"200\"\r\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Fetch Barber Details",
+			"request": {
+				"url": "http://localhost:3030/barber/details",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Fetch a barber details using Id",
+			"request": {
+				"url": "http://localhost:3030/barber/details/110",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": "http://localhost:3030/barber/details/{barber_details.id}"
+			},
+			"response": []
+		},
+		{
+			"name": "Check a barber's availability",
+			"request": {
+				"url": "http://localhost:3030/booking/barber/availability",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"bookingDate\":\"10/31/2021\",\r\n\t\"barberId\":97,\r\n\t\"startTime\":\"9:30\",\r\n\t\"endTime\":\"10:30\"\r\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Fetching Booking Details",
+			"request": {
+				"url": "http://localhost:3030/booking/details",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Create a booking",
+			"request": {
+				"url": "http://localhost:3030/booking/create",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"bookingDate\":\"13/03/2021\",\r\n\t\"name\":\"Kesava\",\r\n\t\"phone\":\"1234\",\r\n\t\"barberId\":259,\r\n\t\"barberName\":\"Vivek\",\r\n\t\"startTime\":\"9:30\",\r\n\t\"endTime\":\"10:30\"\r\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Admin Details",
+			"request": {
+				"url": "http://localhost:3030/booking/admin/details",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Check booking details for a barber",
+			"request": {
+				"url": "http://localhost:3030/booking/details/259",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}
