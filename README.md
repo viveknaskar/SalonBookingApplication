@@ -10,5 +10,7 @@ A spring-boot application for booking a reservation in a Salon that checks the a
 
 The dependabot has been added to check for newer dependencies which are safe to use.
 
+The postman collection has also been added.
+
 
 
