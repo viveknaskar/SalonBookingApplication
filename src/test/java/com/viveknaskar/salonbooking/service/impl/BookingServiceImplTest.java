@@ -142,7 +142,7 @@ class BookingServiceImplTest {
         booking1.setSubject("testing");
         booking1.setLocation("Melbourne");
         booking1.setComments("Good");
-        booking1.setBlock(false);
+        booking1.setBlock(true);
         bookingList1.add(booking1);
         Mockito.when(bookingRepository.findAll()).thenReturn(bookingList);
         Assert.assertEquals(bookingList1,bookingService.getAllBookingServicesForAdmin());
