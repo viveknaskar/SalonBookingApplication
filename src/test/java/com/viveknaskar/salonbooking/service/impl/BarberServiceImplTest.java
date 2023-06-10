@@ -5,18 +5,20 @@ import com.viveknaskar.salonbooking.domain.BarberDetails;
 import org.junit.Assert;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
 import org.mockito.junit.MockitoJUnitRunner;
+import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.util.ArrayList;
 import java.util.List;
 
-@RunWith(MockitoJUnitRunner.class)
-class BarberServiceImplTest {
+@ExtendWith(MockitoExtension.class)
+public class BarberServiceImplTest {
 
     @Mock
     BarberRepository barberRepository;
@@ -30,7 +32,7 @@ class BarberServiceImplTest {
     }
 
     @Test
-    void registerBarberDetailsSuccess(){
+    public void registerBarberDetailsSuccess(){
         BarberDetails barberDetails = new BarberDetails();
         barberDetails.setId(123546);
         barberDetails.setName("test");
@@ -44,7 +46,7 @@ class BarberServiceImplTest {
     }
 
     @Test
-    void getBarberAllRecordsPassTest(){
+    public void getBarberAllRecordsPassTest(){
         List<BarberDetails> barberDetailsList = new ArrayList<>();
         BarberDetails barberDetails = new BarberDetails();
         barberDetails.setId(123546);
@@ -60,7 +62,7 @@ class BarberServiceImplTest {
     }
 
     @Test
-    void getBarberRecordSuccess(){
+    public void getBarberRecordSuccess(){
         BarberDetails barberDetails = new BarberDetails();
         barberDetails.setId(123546);
         barberDetails.setName("test");

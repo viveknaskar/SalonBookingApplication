@@ -5,9 +5,9 @@ import com.viveknaskar.salonbooking.domain.Booking;
 import com.viveknaskar.salonbooking.service.BookingService;
 import org.junit.Assert;
 import org.junit.jupiter.api.Test;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mockito;
-import org.mockito.junit.MockitoJUnitRunner;
+import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
@@ -21,9 +21,9 @@ import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import java.util.ArrayList;
 import java.util.List;
 
-@RunWith(MockitoJUnitRunner.class)
+@ExtendWith(MockitoExtension.class)
 @WebMvcTest(value = BookingController.class)
-class BookingControllerTest {
+public class BookingControllerTest {
 
     @Autowired
     MockMvc mockMvc;
@@ -32,7 +32,7 @@ class BookingControllerTest {
     BookingService bookingService;
 
     @Test
-    void getBarberAllRecordsTest() throws Exception {
+    public void getBarberAllRecordsTest() throws Exception {
         List<Booking> bookingList = new ArrayList<>();
         Booking booking = new Booking();
         booking.setId(123546);
@@ -58,7 +58,7 @@ class BookingControllerTest {
     }
 
     @Test
-    void getBarberAllRecordsAdminTest() throws Exception {
+    public void getBarberAllRecordsAdminTest() throws Exception {
         List<Booking> bookingList = new ArrayList<>();
         Booking booking = new Booking();
         booking.setId(123546);
@@ -84,7 +84,7 @@ class BookingControllerTest {
     }
 
     @Test
-    void getBarberAllRecordsAdminExceptionTest() throws Exception {
+    public void getBarberAllRecordsAdminExceptionTest() throws Exception {
         Mockito.when(bookingService.getAllBookingServicesForAdmin()).thenThrow(new RuntimeException());
         RequestBuilder requestBuilder = MockMvcRequestBuilders.get(
                 "/booking/admin/details").accept(
@@ -94,7 +94,7 @@ class BookingControllerTest {
     }
 
     @Test
-    void getBarberAllRecordsFailTest() throws Exception {
+    public void getBarberAllRecordsFailTest() throws Exception {
         Mockito.when(bookingService.getAllBookingServices()).thenThrow(new RuntimeException());
         RequestBuilder requestBuilder = MockMvcRequestBuilders.get(
                 "/booking/details").accept(
@@ -104,7 +104,7 @@ class BookingControllerTest {
     }
 
     @Test
-    void createBookingServiceSuccessTest() throws Exception {
+    public void createBookingServiceSuccessTest() throws Exception {
         ObjectMapper mapper = new ObjectMapper();
         Booking booking = new Booking();
         booking.setId(123546);
@@ -129,18 +129,14 @@ class BookingControllerTest {
         Assert.assertEquals(HttpStatus.CREATED.value(), result.getResponse().getStatus());
     }
 
-    /*@Test
-    void createBookingServiceFailTest() throws Exception {
+    @Test
+    public void createBookingServiceFailTest() throws Exception {
         ObjectMapper mapper = new ObjectMapper();
         Booking booking = new Booking();
         booking.setId(123546);
         booking.setBarberId(12);
         booking.setBarberName("tester");
-        booking.setCustomerName("test");
         booking.setBookingDate("4");
-        booking.setCustomerPhoneNumber("1234654");
-        booking.setTimeSlotFrom("5");
-        booking.setTimeSlotTo("6");
         String json = mapper.writeValueAsString(booking);
         Mockito.when(bookingService.createBookingService(booking)).thenThrow(new RuntimeException());
         RequestBuilder requestBuilder = MockMvcRequestBuilders
@@ -149,10 +145,10 @@ class BookingControllerTest {
                 .contentType(MediaType.APPLICATION_JSON);
         MvcResult result = mockMvc.perform(requestBuilder).andReturn();
         Assert.assertEquals(HttpStatus.INTERNAL_SERVER_ERROR.value(), result.getResponse().getStatus());
-    }*/
+    }
 
     @Test
-    void checkBarberAvailabilitySuccessTest() throws Exception {
+    public void checkBarberAvailabilitySuccessTest() throws Exception {
         ObjectMapper mapper = new ObjectMapper();
         Booking booking = new Booking();
         booking.setId(123546);
@@ -178,7 +174,7 @@ class BookingControllerTest {
     }
 
     @Test
-    void getBookingIdForBarberTest() throws Exception {
+    public void getBookingIdForBarberTest() throws Exception {
         List<Booking> bookingList = new ArrayList<>();
         Booking booking = new Booking();
         booking.setId(123546);
@@ -204,7 +200,7 @@ class BookingControllerTest {
     }
 
     @Test
-    void getBookingIdForBarberFailTest() throws Exception {
+    public void getBookingIdForBarberFailTest() throws Exception {
         Mockito.when(bookingService.getBookingOfBarber(12)).thenThrow(new RuntimeException());
         RequestBuilder requestBuilder = MockMvcRequestBuilders.get(
                 "/booking/details/12").accept(

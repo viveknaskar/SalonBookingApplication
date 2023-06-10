@@ -5,9 +5,9 @@ import com.viveknaskar.salonbooking.domain.BarberDetails;
 import com.viveknaskar.salonbooking.service.BarberService;
 import org.junit.Assert;
 import org.junit.jupiter.api.Test;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mockito;
-import org.mockito.junit.MockitoJUnitRunner;
+import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
@@ -21,9 +21,9 @@ import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import java.util.ArrayList;
 import java.util.List;
 
-@RunWith(MockitoJUnitRunner.class)
+@ExtendWith(MockitoExtension.class)
 @WebMvcTest(value = BarberController.class)
-class BarberControllerTest {
+public class BarberControllerTest {
 
     @Autowired
     MockMvc mockMvc;
@@ -32,7 +32,7 @@ class BarberControllerTest {
     BarberService barberService;
 
     @Test
-    void getBarberAllRecordsTest() throws Exception {
+    public void getBarberAllRecordsTest() throws Exception {
         List<BarberDetails> barberDetailsList = new ArrayList<>();
 
         BarberDetails barberDetails = new BarberDetails();
@@ -54,7 +54,7 @@ class BarberControllerTest {
     }
 
     @Test
-    void getBarberAllRecordsTestInternalError() throws Exception {
+    public void getBarberAllRecordsTestInternalError() throws Exception {
         Mockito.when(barberService.getBarberAllRecords()).thenThrow(new RuntimeException());
         RequestBuilder requestBuilder = MockMvcRequestBuilders.get(
                 "/barber/details").accept(
@@ -64,7 +64,7 @@ class BarberControllerTest {
     }
 
     @Test
-    void getBarberRecordSuccessTest() throws Exception {
+    public void getBarberRecordSuccessTest() throws Exception {
         BarberDetails barberDetails = new BarberDetails();
         barberDetails.setId(123546);
         barberDetails.setName("test");
@@ -82,7 +82,7 @@ class BarberControllerTest {
     }
 
     @Test
-    void getBarberRecordFailTest() throws Exception {
+    public void getBarberRecordFailTest() throws Exception {
         Mockito.when(barberService.getBarberRecord(123)).thenThrow(new RuntimeException());
         RequestBuilder requestBuilder = MockMvcRequestBuilders.get(
                 "/barber/details/123").accept(
@@ -92,7 +92,7 @@ class BarberControllerTest {
     }
 
     @Test
-    void createBarberRecordSuccessTest() throws Exception {
+    public void createBarberRecordSuccessTest() throws Exception {
         ObjectMapper mapper = new ObjectMapper();
         BarberDetails barberDetails = new BarberDetails();
         barberDetails.setId(123546);
@@ -112,8 +112,8 @@ class BarberControllerTest {
         Assert.assertEquals(HttpStatus.CREATED.value(), result.getResponse().getStatus());
     }
 
-    /*@Test
-    void createBarberRecordFailTest() throws Exception {
+    @Test
+    public void createBarberRecordFailTest() throws Exception {
         ObjectMapper mapper = new ObjectMapper();
         BarberDetails barberDetails = new BarberDetails();
         barberDetails.setId(123546);
@@ -131,5 +131,5 @@ class BarberControllerTest {
                 .contentType(MediaType.APPLICATION_JSON);
         MvcResult result = mockMvc.perform(requestBuilder).andReturn();
         Assert.assertEquals(HttpStatus.INTERNAL_SERVER_ERROR.value(), result.getResponse().getStatus());
-    }*/
+    }
 }

@@ -1,21 +1,24 @@
 package com.viveknaskar.salonbooking.service.impl;
 
-import com.viveknaskar.salonbooking.domain.Booking;
 import com.viveknaskar.salonbooking.data.BookingRepository;
+import com.viveknaskar.salonbooking.domain.Booking;
 import org.junit.Assert;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.junit.runner.RunWith;
-import org.mockito.*;
-import org.mockito.junit.MockitoJUnitRunner;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.Mockito;
+import org.mockito.MockitoAnnotations;
+import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.data.mongodb.core.MongoTemplate;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-@RunWith(MockitoJUnitRunner.class)
-class BookingServiceImplTest {
+@ExtendWith(MockitoExtension.class)
+public class BookingServiceImplTest {
 
     @Mock
     BookingRepository bookingRepository;
@@ -27,12 +30,12 @@ class BookingServiceImplTest {
     BookingServiceImpl bookingService;
 
     @BeforeEach
-    void  setUp(){
+    public void setUp(){
         MockitoAnnotations.initMocks(this);
     }
 
     @Test
-    void createBookingServiceSuccessTest(){
+    public void createBookingServiceSuccessTest(){
         Booking booking = new Booking();
         booking.setId(123546);
         booking.setBarberId(12);
@@ -51,7 +54,7 @@ class BookingServiceImplTest {
     }
 
     @Test
-    void getAllBookingServicesSuccessTest(){
+    public void getAllBookingServicesSuccessTest(){
         List<Booking> bookingList = new ArrayList<>();
         Booking booking = new Booking();
         booking.setId(123546);
@@ -72,7 +75,7 @@ class BookingServiceImplTest {
     }
 
     @Test
-    void getBarberAvailabilitySuccessTest(){
+    public void getBarberAvailabilitySuccessTest(){
         List<Booking> bookingList = new ArrayList<>();
         Booking booking = new Booking();
         booking.setId(123546);
@@ -93,7 +96,7 @@ class BookingServiceImplTest {
     }
 
     @Test
-    void getBarberAvailabilityListEmptyTest(){
+    public void getBarberAvailabilityListEmptyTest(){
         Booking booking = new Booking();
         booking.setId(123546);
         booking.setBarberId(12);
@@ -112,7 +115,7 @@ class BookingServiceImplTest {
     }
 
     @Test
-    void getAllBookingServicesAdminSuccessTest(){
+    public void getAllBookingServicesAdminSuccessTest(){
         List<Booking> bookingList = new ArrayList<>();
         Booking booking = new Booking();
         booking.setId(123546);
@@ -149,7 +152,7 @@ class BookingServiceImplTest {
     }
 
     @Test
-    void getBookingOfBarberPass(){
+    public void getBookingOfBarberPass(){
         List<Booking> bookingList = new ArrayList<>();
         Booking booking = new Booking();
         booking.setId(123546);
